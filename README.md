@@ -43,8 +43,7 @@ you need the following IAM permissions:
 - autoscaling:DescribeLaunchConfigurations
 - autoscaling:DescribeScheduledActions
 
-The following two policy statements should do this. This one allows the user to
-look at the autoscaling configuration:
+The following policy document should permit your IAM user the above rights:
 
     {
       "Version": "2012-10-17",
@@ -61,15 +60,7 @@ look at the autoscaling configuration:
             "*"
           ],
           "Effect": "Allow"
-        }
-      ]
-    }
-
-And this one allows it to view the spot price history:
-
-    {
-      "Version": "2012-10-17",
-      "Statement": [
+        },
         {
           "Action": [
             "ec2:DescribeSpotPriceHistory"
